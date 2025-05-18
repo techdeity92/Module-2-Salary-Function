@@ -2,36 +2,40 @@
 
 # Employee Data Processing and Export
 
-This project provides a comprehensive solution for processing employee salary data in both Python and R.
+This project processes employee data from a CSV file, extracts specific employee information, and exports it to a new CSV file inside a zipped folder named "Employee\_Profile.zip". The R script is then used to unzip and display the data.
 
-## Features
+## How It Works
 
-* Read employee data from a CSV file.
-* Extract specific employee details by name.
-* Export employee data to a CSV file and zip it.
-* Unzip and display data using R for analysis.
-* Error handling for missing files, incorrect data, and processing issues.
+1. **Run the Python Script:**
 
-## Python Implementation
+   * Open the command prompt or terminal.
+   * Navigate to the folder where the Python script is located.
+   * Run the Python script using:
 
-* Uses Pandas for data manipulation and processing.
-* Handles mixed data types and duplicate records.
-* Dynamic file path input for compatibility across different systems.
+     ```
+     python salary_processor.py
+     ```
+   * Enter the full path to the CSV file when prompted or press Enter to use the current directory.
+   * Enter the name of the employee to extract their data.
+   * The script will generate a zip file named `Employee_Profile.zip` containing the extracted CSV data.
 
-## R Implementation
+2. **Run the R Script:**
 
-* Uses dplyr for data filtering and manipulation.
-* Reads CSV data, processes employee information, and zips the output.
-* Extracts and displays data for further analysis.
+   * Ensure that `Employee_Profile.zip` is in the same directory as the R script.
+   * Open the command prompt or terminal.
+   * Run the R script using:
 
-## How to Run
-
-1. Clone the repository.
-2. Place the CSV file in the working directory or provide the full file path.
-3. Run the Python script or the R script as per the requirements.
+     ```
+     Rscript unzip_and_display.R
+     ```
+   * The R script will unzip `Employee_Profile.zip`, read the extracted CSV file, and display its contents in the console.
 
 ## Requirements
 
-* The program follows the assignment structure, ensuring that all functions are clearly defined and logically organized.
-* All error handling is implemented to handle missing files, incorrect data formats, and duplicate records.
-* The main functions in both Python and R provide a smooth user experience, prompting for necessary inputs and displaying relevant information.
+* Python 3.x
+* R with utils library installed
+
+## Important Notes
+
+* The Python script only handles data extraction and zipping. The R script must be run separately to display the data.
+* Ensure both scripts are in the same directory for seamless execution.
