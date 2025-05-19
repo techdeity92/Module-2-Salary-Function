@@ -1,5 +1,4 @@
 # Load necessary library
-if (!require("utils")) install.packages("utils", repos = "https://cloud.r-project.org/")
 library(utils)
 
 # Define the zip file path
@@ -7,7 +6,7 @@ zip_path <- "Employee_Profile.zip"
 
 # Check if the zip file exists
 if (!file.exists(zip_path)) {
-  cat("Error: Zip file not found at", zip_path, "\n")
+  cat("Error: Zip file not found. Ensure the file is named 'Employee_Profile.zip' and is in the same directory as this script.\n")
   quit(status = 1)
 }
 
@@ -20,21 +19,16 @@ csv_path <- file.path(unzip_dir, "employee_data.csv")
 
 # Check if the CSV file was successfully extracted
 if (!file.exists(csv_path)) {
-  cat("Error: CSV file not found in the zip archive.\n")
+  cat("Error: 'employee_data.csv' not found in the zip archive.\n")
   quit(status = 1)
 }
 
-# Read and display the data
-data <- tryCatch({
-  read.csv(csv_path, stringsAsFactors = FALSE)
-}, error = function(e) {
-  cat("Error reading CSV file: ", e$message, "\n")
-  quit(status = 1)
-})
+# Read the CSV file
+data <- read.csv(csv_path, stringsAsFactors = FALSE)
 
-# Display the data
+# Display the data or a message if the file is empty
 if (nrow(data) > 0) {
-  print(head(data))
+  print(data)
 } else {
-  cat("No data available to display.\n")
+  cat("No data available to display in 'employee_data.csv'.\n")
 }
