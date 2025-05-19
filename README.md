@@ -13,7 +13,7 @@ This project processes employee data from a CSV file, extracts specific employee
    * Run the Python script using:
 
      ```
-     python salary_processor.ipynb
+     employee_data_exporter.ipynb
      ```
    * Enter the full path to the CSV file when prompted or press Enter to use the current directory.
    * Enter the name of the employee to extract their data.
