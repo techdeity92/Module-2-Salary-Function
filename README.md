@@ -2,7 +2,7 @@
 
 # Employee Data Processing and Export
 
-This project processes employee data from a CSV file, extracts specific employee information, and exports it to a new CSV file inside a zipped folder named "Employee\_Profile.zip". The R script is then used to unzip and display the data.
+This project processes employee data from a CSV file, extracts specific employee information, and exports it to a new CSV file inside a zipped folder named "Employee\_Profile.zip". The R script is then used to unzip the folder and display the data.
 
 ## How It Works
 
@@ -37,5 +37,5 @@ This project processes employee data from a CSV file, extracts specific employee
 
 ## Important Notes
 
-* The Python script only handles data extraction and zipping. The R script must be run separately to display the data.
+* The Python script handles only data extraction and zipping. The R script must be run separately to display the data.
 * Ensure both scripts are in the same directory for seamless execution.
