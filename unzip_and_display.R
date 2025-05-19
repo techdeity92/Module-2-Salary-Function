@@ -1,12 +1,16 @@
 # Load necessary library
 library(utils)
 
-# Define the zip file path
-zip_path <- "Employee_Profile.zip"
+# Set working directory to the script location or current working directory
+# This approach avoids unnecessary complexity and works consistently
+script_dir <- getwd()
+
+# Define the zip file path relative to the working directory
+zip_path <- file.path(script_dir, "Employee_Profile.zip")
 
 # Check if the zip file exists
 if (!file.exists(zip_path)) {
-  cat("Error: Zip file not found. Ensure the file is named 'Employee_Profile.zip' and is in the same directory as this script.\n")
+  cat("Error: Zip file not found. Ensure 'Employee_Profile.zip' is in the same directory as this script.\n")
   quit(status = 1)
 }
 
@@ -23,12 +27,18 @@ if (!file.exists(csv_path)) {
   quit(status = 1)
 }
 
-# Read the CSV file
-data <- read.csv(csv_path, stringsAsFactors = FALSE)
+# Read and display the data
+data <- tryCatch({
+  read.csv(csv_path, stringsAsFactors = FALSE)
+}, error = function(e) {
+  cat("Error reading CSV file: ", e$message, "\n")
+  quit(status = 1)
+})
 
-# Display the data or a message if the file is empty
+# Display the data
 if (nrow(data) > 0) {
   print(data)
 } else {
   cat("No data available to display in 'employee_data.csv'.\n")
 }
+
