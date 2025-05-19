@@ -13,7 +13,7 @@ This project processes employee data from a CSV file, extracts specific employee
    * Run the Python script using:
 
      ```
-     python salary_processor.py
+     python salary_processor.ipynb
      ```
    * Enter the full path to the CSV file when prompted or press Enter to use the current directory.
    * Enter the name of the employee to extract their data.
@@ -21,8 +21,17 @@ This project processes employee data from a CSV file, extracts specific employee
 
 2. **Run the R Script:**
 
+   * Before running the R script, set the working directory to the location of the R script and zip file:
+
+     ```r
+     setwd("C:/path/to/your/directory")
+     ```
+   * Verify the working directory:
+
+     ```r
+     getwd()
+     ```
    * Ensure that `Employee_Profile.zip` is in the same directory as the R script.
-   * Open the command prompt or terminal.
    * Run the R script using:
 
      ```
@@ -37,5 +46,5 @@ This project processes employee data from a CSV file, extracts specific employee
 
 ## Important Notes
 
-* The Python script handles only data extraction and zipping. The R script must be run separately to display the data.
-* Ensure both scripts are in the same directory for seamless execution.
+* The Python script only handles data extraction and zipping. The R script must be run separately to display the data.
+* Ensure both scripts and the zip file are in the same working directory before running the R script.
